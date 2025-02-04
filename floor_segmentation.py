@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Read the input image
-image = cv2.imread('C:/Users/datacore/Desktop/Quleep/Prototype/Data/image2.jpg')  # Replace with the path to your image
+image = cv2.imread('D:/Quleep/Prototype/Code/Data/image2.jpg')  # Replace with the path to your image
 image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
 # Convert the image to grayscale

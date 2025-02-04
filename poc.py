@@ -5,7 +5,7 @@ import cv2
 import torch
 
 # Load image
-image = cv2.imread('C:/Users/datacore/Desktop/Quleep/Prototype/Data/image1.jpg')
+image = cv2.imread('D:/Quleep/Prototype/Data/image1.jpg')
 
 # Resize if necessary
 resized_image = cv2.resize(image, (512, 512))  # Resize to a manageable size
@@ -84,7 +84,7 @@ cv2.destroyAllWindows()
 #Carpet Placement
 
 # Load carpet texture
-carpet_texture = cv2.imread('C:/Users/datacore/Desktop/Quleep/Prototype/Data/floor1.jpg')
+carpet_texture = cv2.imread('D:/Quleep/Prototype/Data/floor1.jpg')
 
 # Resize the texture to fit the floor area
 carpet_texture_resized = cv2.resize(carpet_texture, (resized_image.shape[1], resized_image.shape[0]))

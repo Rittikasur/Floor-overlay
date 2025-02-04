@@ -71,5 +71,13 @@ def apply_floor_design(room_image_path, floor_design_path, output_image_path):
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
+
 # Example usage
-apply_floor_design("image2.jpg", "floor2.jpg", "output.jpg")
+
+room = "D:/Quleep/Prototype/Code/Data/image2.jpg"
+
+floor = "D:/Quleep/Prototype/Code/Data/floor2.jpg"
+
+output = "D:/Quleep/Prototype/Code/Data/output/output.jpg"
+
+apply_floor_design(room, floor,output)
