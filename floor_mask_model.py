@@ -112,8 +112,8 @@ def infer(imagepath,designimgpath,outputpath,mode = 3):
     return 1
 
 if __name__ == "__main__":
-    ip= "D:/Quleep/Prototype/Data/image2.jpg"
+    ip= "D:/Quleep/Prototype/Code/Data/image4.jpg"
     dp= 0
-    op= "D:/Quleep/Prototype/Data/demo.jpg"
+    op= "D:/Quleep/Prototype/Code/mask_output/demo4.jpg"
     load_model()
     infer(ip,dp,op)
