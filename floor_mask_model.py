@@ -1,3 +1,4 @@
+# 001
 
 from transformers import MaskFormerFeatureExtractor, MaskFormerForInstanceSegmentation
 from transformers import AutoImageProcessor, MaskFormerModel
@@ -49,8 +50,6 @@ def create_image_with_shadow(img_gray,hsv_image,walloverlayarray):
   print(hsv_image.shape)
   return hsv_image.astype(np.uint8)
 
-
-
 def load_model():
     global feature_extractor,model,device
     # load MaskFormer fine-tuned on COCO panoptic segmentation
@@ -62,6 +61,7 @@ def load_model():
     print("Model Successfully Loaded")
     # image_processor = AutoImageProcessor.from_pretrained("facebook/maskformer-swin-base-ade")
     # model = MaskFormerForInstanceSegmentation.from_pretrained("facebook/maskformer-swin-base-ade")
+
 def infer(imagepath,designimgpath,outputpath,mode = 3):
     #mode 0 for walls
     #model 3 for floors
@@ -101,7 +101,6 @@ def infer(imagepath,designimgpath,outputpath,mode = 3):
     color_predicted_panoptic_map = np.zeros((predicted_panoptic_map.shape[0], predicted_panoptic_map.shape[1], 3), dtype=np.uint8) # height, width, 3
     color_predicted_panoptic_map[predicted_panoptic_map == wallitemid ] = (255,0,0)
 
-
     plt.imsave(outputpath,color_predicted_panoptic_map)
     print('Inference done!')
     if torch.cuda.is_available():
@@ -111,9 +110,13 @@ def infer(imagepath,designimgpath,outputpath,mode = 3):
     print(torch.cuda.memory_allocated())
     return 1
 
-if __name__ == "__main__":
-    ip= "D:/Quleep/Prototype/Code/Data/image4.jpg"
-    dp= 0
-    op= "D:/Quleep/Prototype/Code/mask_output/demo4.jpg"
+def main():
+    imagepath = "../floorOverlay/inputRoom/room_01a80ef6-b94e-4f2d-8169-84f1b0ec3896.jpg"
+    designimgpath = 0
+    outputpath = "../floorOverlay/mask_out/mask_01a80ef6-b94e-4f2d-8169-84f1b0ec3896.jpg"
+    
     load_model()
-    infer(ip,dp,op)
+    infer(imagepath, designimgpath, outputpath)
+
+if __name__ == "__main__":
+    main()
